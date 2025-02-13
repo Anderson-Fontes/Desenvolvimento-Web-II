@@ -1,0 +1,23 @@
+Exercicio 1:
+
+export default function App() {
+  return <Message/>;
+  }
+  function Message(){
+  return <div>Bom dia!</div>;
+  }
+  
+Exercicio 2:
+
+function Message() {
+  const currentHour = new Date().getHours();
+  const greeting = currentHour < 12 
+    ? "Bom dia!" 
+    : currentHour < 18 
+      ? "Boa tarde!" 
+      : "Boa noite!";
+
+  return <div>{greeting}</div>;
+}
+
+export default Message;
