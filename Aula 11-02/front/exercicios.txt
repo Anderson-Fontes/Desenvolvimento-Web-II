@@ -21,3 +21,121 @@ function Message() {
 }
 
 export default Message;
+
+Exercicio 3:
+
+function Message() {
+  const currentHour = new Date().getHours();
+  const greeting = currentHour < 12 
+    ? <div style={dia}>Bom dia!</div>
+    : currentHour < 18 
+      ? <div style={tarde}>Boa tarde!</div> 
+      : <div style={noite}>Boa noite!</div>;
+
+  return <div>{greeting}</div>;
+}
+
+export default Message;
+
+const dia = {
+  backgroundColor: 'yellow'
+  };
+  const tarde = {
+  backgroundColor: 'orange'
+  };
+  const noite = {
+  backgroundColor: '#888'
+  };
+
+  Exercicio 4:
+
+    export default function App() {
+    const nomes = ["Ana", "Bruno", "Carla", "Daniel"];
+    const saida = nomes.map(function (item, indice) {
+      return <li key={indice}>{item}</li>;
+    });
+  
+    return <ol>{saida}</ol>;
+  }
+
+  Exercicio 5:
+
+  export default function App() {
+  const nomes = [
+    {
+      name: "Ana",
+      gender: "F",
+    },
+    {
+      name: "Bruno",
+      gender: "M",
+    },
+    {
+      name: "Carla",
+      gender: "F",
+    },
+    {
+      name: "Daniel",
+      gender: "M",
+    },
+  ];
+  const saida = nomes.map(function (item, indice) {
+    return (
+      <li key={indice} style={item.gender == "M" ? m : f}>
+        {item.name}
+      </li>
+    );
+  });
+
+  return <ol>{saida}</ol>;
+}
+const f = {
+  backgroundColor: "orange",
+};
+const m = {
+  backgroundColor: "palegreen",
+};
+
+Exercicio 6:
+
+export default function App() {
+  const nomes = [
+    {
+      name: "Ana",
+      gender: "F",
+      age: 21,
+    },
+
+    {
+      name: "Bruno",
+      gender: "M",
+      age: 17,
+    },
+    {
+      name: "Carla",
+      gender: "F",
+      age: 15,
+    },
+    {
+      name: "Daniel",
+      gender: "M",
+      age: 22,
+    },
+  ];
+
+  const saida = nomes.map(function (item, indice) {
+    return (
+      <li key={indice} style={item.gender == "M" ? m : f}>
+        {item.name} {item.age <18 && <>menor</>}
+      </li>
+    );
+  });
+
+  return <ol>{saida}</ol>;
+}
+const f = {
+  backgroundColor: "orange",
+};
+const m = {
+  backgroundColor: "palegreen",
+};
