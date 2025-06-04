@@ -1,0 +1,202 @@
+/* App.css - Tema Escuro Sofisticado */
+
+/* Layout Principal */
+.app-container {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-areas:
+    "header header header"
+    "sidebar map data";
+  grid-template-columns: 280px 1fr 320px;
+  grid-template-rows: 60px 1fr;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Cabeçalho */
+.app-header {
+  grid-area: header;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #2d2d2d;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.app-header h1 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin: 0;
+  color: #f0f0f0;
+}
+
+/* Sidebar - Lista de Cidades */
+.city-list-container {
+  grid-area: sidebar;
+  background-color: #1a1a1a;
+  border-right: 1px solid #2a2a2a;
+  overflow-y: auto;
+  padding: 1rem 0;
+}
+
+.city-list {
+  list-style: none;
+}
+
+.city-item {
+  padding: 0.8rem 1.5rem;
+  margin: 0.2rem 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  color: #d0d0d0;
+}
+
+.city-item:hover {
+  background-color: #252525;
+  color: #ffffff;
+}
+
+.city-item.active {
+  background-color: #252525;
+  border-left-color: #8a5749;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Área do Mapa */
+.map-container {
+  grid-area: map;
+  background-color: #161616;
+  position: relative;
+}
+
+/* Painel de Dados */
+.data-display-container {
+  grid-area: data;
+  background-color: #1a1a1a;
+  border-left: 1px solid #2a2a2a;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.solar-data {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.data-card {
+  background-color: #212121;
+  border-radius: 6px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.data-card h3 {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Dados Mensais */
+.monthly-data {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.month-item {
+  background-color: #2d2d2d;
+  padding: 0.6rem;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.month-item:hover {
+  transform: translateY(-2px);
+  background-color: #353535;
+}
+
+/* Estados */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #8a8a8a;
+}
+
+.error {
+  padding: 1rem;
+  background-color: #3a1a1a;
+  color: #ff6b6b;
+  border-radius: 6px;
+  margin: 1rem 0;
+  border-left: 3px solid #dc3545;
+}
+
+/* Barra de Rolagem */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #252525;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .app-container {
+    grid-template-areas:
+      "header header"
+      "sidebar map"
+      "data data";
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: 60px 1fr auto;
+  }
+
+  .data-display-container {
+    border-left: none;
+    border-top: 1px solid #2a2a2a;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "map"
+      "data";
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px auto 400px auto;
+  }
+
+  .city-list-container {
+    border-right: none;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .monthly-data {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
